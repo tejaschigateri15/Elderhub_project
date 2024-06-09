@@ -125,7 +125,7 @@ public class StudentController {
     public Map<String, String> createCheckoutSession(@RequestBody Map<String, Object> data) {
         Map<String, String> response = new HashMap<>();
         try {
-            String apiKey = "sk_test_51OcrH2SAR2XpmMEZQmxxqs1MmDnsxnsPbeNkkhtGAHmDCzbh6dPkzYG9wnJUtd3Ym2lQvdccAaCCMjVYpXoUn7cM00ASKkBx8K";
+            String apiKey = "put_your_api_key";
             Stripe.apiKey = apiKey;
 
             Integer amount = (Integer) data.get("amount"); // Retrieve the amount from the request data
