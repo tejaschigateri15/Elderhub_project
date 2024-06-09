@@ -24,11 +24,11 @@ The Old Age Home Care Platform is designed to connect elderly individuals with s
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/old-age-home-care-platform.git
+   git clone https://github.com/tejaschigateri15/Elderhub_project.git
    ```
 2. Navigate to the backend directory and install dependencies:
    ```bash
-   cd backend
+   cd demo52
    mvn install
    ```
 3. Start the backend server:
@@ -37,12 +37,12 @@ The Old Age Home Care Platform is designed to connect elderly individuals with s
    ```
 4. Navigate to the frontend directory and install dependencies:
    ```bash
-   cd ../frontend
+   cd Frontend
    npm install
    ```
 5. Start the frontend server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ## Usage
