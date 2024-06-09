@@ -7,7 +7,7 @@
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
+
 
 ## Overview
 The Old Age Home Care Platform is designed to connect elderly individuals with suitable care centers and facilitate donations to support these centers. It offers a user-friendly interface for registrations, detailed care center information, communication, donations, and caregiver hiring processes.
@@ -59,5 +59,3 @@ Contributions are welcome! Please fork the repository and create a pull request 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
-For any questions or further information, please contact the project team at [email@example.com](mailto:email@example.com).
