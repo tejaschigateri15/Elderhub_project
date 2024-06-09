@@ -1,0 +1,71 @@
+@PostMapping("/save")
+        public void savestudent(@RequestBody Student student){
+            studentService.saveStudent(student.getName(),student.getEmail(),student.getGender());
+        }
+
+        @GetMapping("/getall")
+        public List<Student> getall(){
+            return studentdao.findAll();
+
+        }
+
+        @PostMapping("/json")
+        public Map<String, Object> processJson(@RequestBody Map<String, Object> jsonPayload) {
+        // Print the incoming JSON payload
+             System.out.println("Received JSON: " + jsonPayload);
+
+        // You can perform additional processing here if needed.
+
+        // Send the JSON object back as the response
+            return jsonPayload;
+         }
+
+        @PostMapping("/saveall")
+        public ResponseEntity<String> saveall(@RequestBody List<Student> students){
+            studentdao.saveAll(students);
+            return new ResponseEntity<>("Persons data saved successfully", HttpStatus.OK);
+        }
+
+        @GetMapping("/get/{id}")
+        public Optional<Student> getbyid(@PathVariable Integer id){
+            return studentdao.findById(id);
+        }
+
+        @DeleteMapping("/delete/{id}")
+        public ResponseEntity<String> deletebyid(@PathVariable Integer id){
+            studentdao.deleteById(id);
+            return  new ResponseEntity<>("fd 👍",HttpStatus.OK);
+        }
+
+        @GetMapping("/getbyname/{name}")
+        public List<Student> getbyname(@PathVariable String name){
+            return studentdao.findByName(name);
+        }
+
+        @PostMapping("/saveone")
+        public ResponseEntity<String> saveone(@RequestBody Student student){
+            studentdao.save(student);
+            return new ResponseEntity<>("Persons data saved successfully", HttpStatus.OK);
+        }
+
+        @DeleteMapping("/deleteByName/{name}")
+        public ResponseEntity<String> deleteByName(@PathVariable String name){
+            studentdao.deleteByName(name);
+            return new ResponseEntity<>("Persons data deleted successfully", HttpStatus.OK);
+        }
+
+        @PutMapping ("/update/{id}")
+        public ResponseEntity<String> update(@PathVariable Integer id,@RequestBody Student student){
+            Optional<Student> student1 = studentdao.findById(id);  // get the optional object
+            if(student1.isPresent()){
+                Student student2 = student1.get(); // get the student object from optional
+                student2.setName(student.getName()); // set the new values
+                student2.setEmail(student.getEmail());
+                student2.setGender(student.getGender());
+                studentdao.save(student2);  // save the object
+                return new ResponseEntity<>("Persons data updated successfully", HttpStatus.OK);
+            }
+            else{
+                return new ResponseEntity<>("Persons data not found", HttpStatus.OK);
+            }
+        }
